@@ -6,7 +6,7 @@ type Oshi struct {
 	OshiID		int		  `db:"oshi_id" form:"oshi_id" json:"oshi_id"`
 	OshiName   	string    `db:"oshi_name" form:"oshi_name" json:"oshi_name"`
 	Tag  		string    `db:"tag" form:"tag" json:"tag"`
-	Birthdate  	string    `db:"birthdate" form:"birthdate" json:"birthdate"`
+	Birthdate  	time.Date `db:"birthdate" form:"birthdate" json:"birthdate"`
 	OshiMeet 	string    `db:"oshi_meet" form:"oshi_meet" json:"oshi_meet"`
 	LikePoint	string    `db:"like_point" form:"like_point" json:"like_point"`
 	Free_space	string    `db:"free_space" form:"free_space" json:"free_space"`
