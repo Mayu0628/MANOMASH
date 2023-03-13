@@ -1,7 +1,13 @@
 .form-wrapper {
+    font-family: 'Mochiy Pop P One';
+    color: #8B5654;
+    background-color: #F8D5CE;
+
+    border-radius: 30px;
+    border-color: #F8D5CE;
     
+    width: 650px;
+    display: block;
+    margin: -100px auto;   /* 中央寄せ */
 }
 
-.form-item input {
-    border:none
-}
