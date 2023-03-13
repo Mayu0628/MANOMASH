@@ -1,4 +1,6 @@
 document.getElementById("header").innerHTML = `
+<head>
+    <link rel="stylesheet" href="css/index.css">
 <header>
     <div class="left-wrapper">
         <img class="osiprofile-icon" src="images/osiprofile-icon.PNG">
