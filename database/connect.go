@@ -16,7 +16,7 @@ func GormConnect() {
 	port := "3306"
 	database_name := os.Getenv("MYSQL_DATABASE")
 
-	CONNECT := user+":"+password+"@tcp("+host+":"+port+")/"+database_name+"?charset=utf8mb4"
+	CONNECT := user+":"+password+"@tcp("+host+":"+port+")/"+database_name+"?charset=utf8mb4&parseTime=true"
 	DB, err = gorm.Open(mysql.Open(CONNECT), &gorm.Config{})
 
 	if err != nil {
