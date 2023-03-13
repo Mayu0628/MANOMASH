@@ -1,7 +1,84 @@
 .form-wrapper {
+    font-family: 'Mochiy Pop P One';
+    color: #8B5654;
+    background-color: #F8D5CE;
+
+    border-radius: 30px;
+    border-color: #F8D5CE;
     
+    width: 650px;
+    display: block;
+    margin: 40px auto;   /* 中央寄せ */
+}
+
+.form-wrapper input {
+    border-radius: 30px;
+    border-color: #fff;
+    border:none
+
+}
+
+.form-wrapper h1 {
+    color: #fff;
+    padding: 20px 0 0 20px;
+    font-family: Lexend;
+}
+
+.form-item {
+    
+    padding-left: 20px;
 }
 
 .form-item input {
     border:none
+    
+}
+
+.form-item p {
+    margin: -10px 0 -5px 0;
+    color: #fff;
+}
+
+.question {
+    float: left;
+    width: 600px;
+    height: 300px;
+    background-color: aqua;
+
+}
+
+.ranking,.memory {
+    line-height: 50%;
+    width: 50%;
+    height: auto;
+    background-color: #fff;
+}
+
+.free {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* 中央寄せ */
+}
+
+.free input {
+    width: 590px;
+    height: 240px;
+    margin-top: -10px;
+}
+
+.care {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* 中央寄せ */
+}
+
+.care p {
+    margin-bottom: -55px;
+    z-index:10000
+}
+
+.care input {
+    width: 590px;
+    height: 200px;
+    margin-top: 30px;
 }
