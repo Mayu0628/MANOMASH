@@ -22,16 +22,20 @@ CREATE TABLE IF NOT EXISTS oshis (
 
 CREATE TABLE oshi_tag (
   oshi_id		INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-  tag			VARCHAR(100) NOT NULL,
-  PRIMARY KEY (oshi_id,tag)
+  tag_id			VARCHAR(100) NOT NULL,
+  PRIMARY KEY (oshi_id,tag_id)
 );
+
+CREATE TABLE tag(
+  tag_id     INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  tag_name   VARCHAR(100)
+)
 
 CREATE TABLE oshi_like (
   oshi_id		INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   like_point	VARCHAR(254) NOT NULL,
   PRIMARY KEY (oshi_id,like_point)
 )
-
 
 CREATE TABLE IF NOT EXISTS comments (
   oshi_id    	INTEGER UNSIGNED NOT NULL,
