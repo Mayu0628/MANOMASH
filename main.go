@@ -2,6 +2,7 @@ package main
 
 import (
 	"MANOMASH/database"
+	"MANOMASH/handler"
 	"fmt"
 	"net/http"
 
@@ -18,20 +19,20 @@ func main() {
 		AllowCredentials: true,
 	})
 	database.GormConnect()
-	sqlDB, err := database.DB.DB()
+	sqlDB, _ := database.DB.DB()
 	defer sqlDB.Close()
 
-	err = sqlDB.Ping()
-
-	if err != nil {
-		fmt.Println("エラー")
-		fmt.Println(err)
-		return
-	} else {
-		fmt.Println("データベース接続成功")
-	}
-
 	fmt.Println("hallo,world")
+	r.HandleFunc("/login", handler.LoginHandler).Methods(http.MethodGet)
+	r.HandleFunc("/sign-up", handler.SignUpHandler).Methods(http.MethodGet)
+	r.HandleFunc("/mypage/edit",handler.MyPageEditHandler).Methods(http.MethodGet)
+	r.HandleFunc("/mypage",handler.MyPageHandler).Methods(http.MethodPost)
+	r.HandleFunc("/profile", handler.ProfileHandler).Methods(http.MethodPost)
+	r.HandleFunc("/profile/add", handler.ProfileAddHandler).Methods(http.MethodGet)
+	r.HandleFunc("/profile/edit", handler.ProfileEditHandler).Methods(http.MethodGet)
+	r.HandleFunc("/profile/delete", handler.ProfileDeleteHandler).Methods(http.MethodDelete)
+	r.HandleFunc("toppage", handler.TopPageHandler).Methods(http.MethodPost)
+
 	handler := c.Handler(r)
 	http.ListenAndServe(":8080", handler)
 }
