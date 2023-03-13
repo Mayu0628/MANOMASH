@@ -13,13 +13,7 @@ INSERT INTO users (
 INSERT INTO oshis (
   oshi_name, birthday, oshi_meet, free_space, interest, reaction_num, created_at, updated_at
 ) VALUES (
-  '中村ゆきの', '20190907', 'もし会えたら一緒にサッカーをしたいです！！', '自由に記入しちゃうよ！', 5, now(), 1, now(), now()
-);
-
-INSERT INTO oshi_tag (
-  oshi_id, tag_id
-) VALUES (
-  1, 1
+  '中村ゆきの', '20190907', 'もし会えたら一緒にサッカーをしたいです！！', '自由に記入しちゃうよ！', '推しについて気になったらここをみてね！！', 5, now(), now()
 );
 
 INSERT INTO tag (
@@ -28,10 +22,16 @@ INSERT INTO tag (
   'サッカー'
 );
 
-INSERT INTO oshi_like (
-  like_point
+INSERT INTO oshi_tag (
+  oshi_id, tag_id
 ) VALUES (
-  面白いところ
+  1, 1
+);
+
+INSERT INTO oshi_like (
+  oshi_id,like_point
+) VALUES (
+  1,'面白いところ'
 );
 
 INSERT INTO comments (
