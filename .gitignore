@@ -16,6 +16,6 @@
 tmp/
 .idea/
 .DS_Store
-launch.json
+.vscode/
 
 # .env
