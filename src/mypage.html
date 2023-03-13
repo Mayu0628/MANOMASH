@@ -9,7 +9,34 @@
 <body>
     <div id="header"></div>
 
+    <div class="user-information">
+        <img src="https://placehold.jp/150x150.png">
+        <h1>{{.ユーザーの名前}}</h1>
+        <p>{{.ユーザーID}}</p>
+        <p class="user-comment">{{.ユーザーのコメント}}</p>
+    </div>
 
+    <div class="osiprofiles">
+
+        <!-- JS、for文でデータ入れる -->
+        <a class="osiprofile" href="">
+            <img src="https://placehold.jp/150x150.png">
+            <div class="osiprofile-information">
+                <h2>{{.推しの名前}}</h2>
+                <div class="tags">
+                    <ul>
+                        <li>タグ１</li>
+                        <li>タグ２</li>
+                        <li>タグ３</li>
+                    </ul>
+                </div>
+            </div>
+        </a>
+
+    </div>
+    <div class="btn-wrapper">
+        <a class="edit-btn" href="profile-edit.html">マイページを編集</a>
+    </div>
 
     <script src="./common/header.js"></script>
 </body>
