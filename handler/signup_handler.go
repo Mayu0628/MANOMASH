@@ -12,7 +12,6 @@ import (
 
 func SignUpHandler(w http.ResponseWriter, req *http.Request) {
 	var reqUserData model.User
-	var ResData model.ResFlg
 	fmt.Println("サインアップスタート")
 	if err := json.NewDecoder(req.Body).Decode(&reqUserData); err != nil {
 		fmt.Println(err)
@@ -26,8 +25,7 @@ func SignUpHandler(w http.ResponseWriter, req *http.Request) {
 	result := database.DB.First(&user, "email = ?", reqUserData.Email)
 	if result.Error != nil{
 		result = database.DB.Create(&user)
-		ResData.Status = 1
-		ResData.Result = "success"
+		ResData := ResFlgCreate(1,"succesful")
 		if result.Error != nil{
 			log.Fatal(result.Error)
 		}
@@ -36,13 +34,12 @@ func SignUpHandler(w http.ResponseWriter, req *http.Request) {
 		if err := json.NewEncoder(w).Encode(ResData); err != nil{
 			fmt.Println(err)
 		}
-		fmt.Println( ResData)
+		fmt.Println(ResData)
 		io.WriteString(w, "アカウントが作成されました\n")
 
 		return
 	}
-	ResData.Status = 0
-	ResData.Result = "fail"
+	ResData := ResFlgCreate(0,"fail")
 	io.WriteString(w, "そのメールアドレスは既に使用されています\n")
 	json.NewEncoder(w).Encode(ResData)
 }
