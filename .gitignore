@@ -15,5 +15,7 @@
 # vendor/
 tmp/
 .idea/
+.DS_Store
+launch.json
 
 # .env
