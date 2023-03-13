@@ -10,7 +10,6 @@ import(
 var DB *gorm.DB
 func GormConnect() {
 	var err error
-	//DBMS     := "mysql"
 	user := os.Getenv("MYSQL_USER")
 	password := os.Getenv("MYSQL_PASSWORD")
 	host := os.Getenv("MYSQL_HOST")
@@ -22,5 +21,15 @@ func GormConnect() {
 
 	if err != nil {
 		fmt.Println(err)
+	}
+	sqlDB, err := DB.DB()
+	err = sqlDB.Ping()
+
+	if err != nil {
+		fmt.Println("エラー")
+		fmt.Println(err)
+		return
+	} else {
+		fmt.Println("データベース接続成功")
 	}
 }
