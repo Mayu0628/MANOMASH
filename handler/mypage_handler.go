@@ -4,18 +4,19 @@ import (
 	"MANOMASH/database"
 	"MANOMASH/model"
 
-	"net/http"
 	"encoding/json"
+	"net/http"
 	"strconv"
 )
 
 func MyPageHandler(w http.ResponseWriter, req *http.Request) {
 	id, err := strconv.Atoi(req.URL.Query().Get("id"))
 	if err != nil {
-		ResData:= ResFlgCreate(0,"fail", 0)
+		ResData := ResFlgCreate(0, "fail", 0)
 		json.NewEncoder(w).Encode(ResData)
 		return
 	}
+
 	type ResData struct{
 		Status 		int
 		Result 		string
@@ -25,12 +26,13 @@ func MyPageHandler(w http.ResponseWriter, req *http.Request) {
 		OshiName[3] string
 		OshiID		int
 		//推しのIDを配列にして渡す
+
 	}
 	var SendID model.User
 	var Response ResData
 	var OshiData model.Oshi
 	database.DB.First(&SendID, "user_id = ?", id)
-	database.DB.First(&OshiData, "user_id = ?", id)
+
 	for i := 0; i < 3; i++ {
 		database.DB.First(&OshiData, "oshi_id = ?", i)
 		Response.OshiName[i] = OshiData.OshiName

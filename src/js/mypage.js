@@ -21,8 +21,6 @@ const obj = {
     introduce: 'よろしくおねがいします！！'
 }
 
-document.cookie = "Name=ji";
-
 const user_name = document.getElementById('user_name')
 console.log(user_name)
 // if not null
