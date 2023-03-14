@@ -40,6 +40,7 @@ func MyPageHandler(w http.ResponseWriter, req *http.Request) {
 			Response.OshiName[i] = OshiData.OshiName
 		} else {
 			i = 4
+
 		}
 	}
 	Response.Status, Response.Result, Response.UserID, Response.UserName, Response.Introduce = 1, "succesful", id, SendID.UserName, SendID.Introduce

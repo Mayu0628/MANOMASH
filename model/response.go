@@ -1,7 +1,5 @@
 package model
 
-import "time"
-
 type ResFlg struct {
 	Status int    `json:"status"`
 	Result string `json:"result"`
@@ -13,11 +11,11 @@ type ResOshiData struct {
 	Result     string
 	Id         int
 	OshiName   string
-	Birthday   time.Time
+	Birthday   string
 	OshiMeet   string
-	LikePoint1 string
-	LikePoint2 string
-	LikePoint3 string
+	OshiLike1  string
+	OshiLike2  string
+	OshiLike3  string
 	Free_Space string
 	Interest   string
 }
