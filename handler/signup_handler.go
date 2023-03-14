@@ -5,6 +5,7 @@ import (
 	"MANOMASH/model"
 	"encoding/json"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 )
@@ -26,11 +27,8 @@ func SignUpHandler(w http.ResponseWriter, req *http.Request) {
 	if result.Error != nil {
 		result = database.DB.Create(&user)
 
-		ResData := ResFlgCreate(1,"succesful")
-			log.Fatal(result.Error)
-		}
-		// json.NewEncoder(w).Encode(reqUserData)
-		// fmt.Println(reqUserData)
+		ResData := ResFlgCreate(1, "succesful")
+		log.Fatal(result.Error)
 		if err := json.NewEncoder(w).Encode(ResData); err != nil {
 			fmt.Println(err)
 		}
@@ -40,7 +38,7 @@ func SignUpHandler(w http.ResponseWriter, req *http.Request) {
 
 		return
 	}
-	ResData := ResFlgCreate(0,"fail")
+	ResData := ResFlgCreate(0, "fail")
+	json.NewEncoder(w).Encode(ResData)
 	io.WriteString(w, "そのメールアドレスは既に使用されています\n")
-
 }
