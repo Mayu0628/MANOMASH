@@ -10,7 +10,7 @@ document.getElementById("header").innerHTML = `
     <div class="right-wrapper">
         <ul>
             <li><a href="mypage.html">マイページ</a></li>
-            <li><a href=""></a>検索</li>
+            <li><a href="gallery.html">推しを探す</a></li>
             <li><a href="profile-add.html">＋新規作成</a></li>
             <li class="login-btn"><div id="login_logout"></div></li>
         </ul>
