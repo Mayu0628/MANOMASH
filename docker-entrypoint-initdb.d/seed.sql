@@ -11,27 +11,9 @@ INSERT INTO users (
 );
 
 INSERT INTO oshis (
-  oshi_name, birthday, oshi_meet, free_space, interest, reaction_num, created_at, updated_at
+  oshi_name, birthday, oshi_meet, oshi_like1, oshi_like2, oshi_like3 ,free_space, interest, reaction_num, created_at, updated_at
 ) VALUES (
-  '中村ゆきの', '20190907', 'もし会えたら一緒にサッカーをしたいです！！', '自由に記入しちゃうよ！', '推しについて気になったらここをみてね！！', 5, now(), now()
-);
-
-INSERT INTO tag (
-  tag_name
-) VALUES (
-  'サッカー'
-);
-
-INSERT INTO oshi_tag (
-  oshi_id, tag_id
-) VALUES (
-  1, 1
-);
-
-INSERT INTO oshi_like (
-  oshi_id,like_point
-) VALUES (
-  1,'面白いところ'
+  '中村ゆきの', '20190907', A, B, C, 'もし会えたら一緒にサッカーをしたいです！！', '自由に記入しちゃうよ！', '推しについて気になったらここをみてね！！', 5, now(), now()
 );
 
 INSERT INTO comments (

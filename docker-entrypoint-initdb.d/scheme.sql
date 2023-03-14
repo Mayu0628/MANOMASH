@@ -14,6 +14,9 @@ CREATE TABLE IF NOT EXISTS oshis (
   oshi_name		VARCHAR(100)	NOT NULL,
   birthday		DATETIME 			NOT NULL,
   oshi_meet		VARCHAR(1024)	NOT NULL,
+  oshi_like1  VARCHAR(200) NOT NULL,
+  oshi_like2  VARCHAR(200) NOT NULL,
+  oshi_like3  VARCHAR(200) NOT NULL,
   free_space	VARCHAR(1024)	NOT NULL,
   interest		VARCHAR(1024)	NOT NULL,
   reaction_num	INTEGER UNSIGNED,
@@ -23,25 +26,6 @@ CREATE TABLE IF NOT EXISTS oshis (
   FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS tag (
-  tag_id     INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-  tag_name   VARCHAR(100)
-);
-
-CREATE TABLE IF NOT EXISTS oshi_tag (
-  oshi_id		INTEGER UNSIGNED,
-  tag_id		INTEGER UNSIGNED,
-  PRIMARY KEY (oshi_id,tag_id),
-  FOREIGN KEY (oshi_id) REFERENCES oshis(oshi_id) ON DELETE CASCADE,
-  FOREIGN KEY (tag_id) REFERENCES tag(tag_id) ON DELETE CASCADE
-);
-
-
-CREATE TABLE IF NOT EXISTS oshi_like (
-  oshi_id		INTEGER UNSIGNED,
-  like_point	VARCHAR(254) NOT NULL,
-  FOREIGN KEY (oshi_id) REFERENCES oshis(oshi_id) ON DELETE CASCADE
-);
 
 CREATE TABLE IF NOT EXISTS comments (
   oshi_id    	INTEGER UNSIGNED NOT NULL,
