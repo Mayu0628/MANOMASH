@@ -3,10 +3,10 @@ document.getElementById("header").innerHTML = `
     <link rel="stylesheet" href="css/index.css">
 </head>
 <header>
-    <div class="left-wrapper">
+    <a class="left-wrapper" href="index.html">
         <img class="osiprofile-icon" src="images/osiprofile-icon.PNG">
         <img class="osiprofile-logo"src="images/osiprofile-logo.PNG">
-    </div>
+    </a>
     <div class="right-wrapper">
         <ul>
             <li><a href="mypage.html">マイページ</a></li>
