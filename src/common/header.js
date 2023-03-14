@@ -12,7 +12,7 @@ document.getElementById("header").innerHTML = `
             <li><a href="mypage.html">マイページ</a></li>
             <li><a href=""></a>検索</li>
             <li><a href="profile-add.html">＋新規作成</a></li>
-            <li class="login-btn"><a id="login_logout" class=login-link href="login.html">ログイン</a></li>
+            <li class="login-btn"><div id="login_logout"></div></li>
         </ul>
     </div>
 </header>
