@@ -1,0 +1,20 @@
+/* css,animation */
+.mypage-transition-link:hover {
+    background-color: #E9725D;
+    color: white;
+    transition: all 0.3s;
+}
+
+.li-transition:hover {
+    text-decoration: underline;
+}
+
+.opacity-btn:hover {
+    opacity: 0.75;
+    transition: all 0.3s;
+}
+
+.hover-tab:hover {
+    transform: scale(1.02);
+    transition: transform .7s ease;
+}
