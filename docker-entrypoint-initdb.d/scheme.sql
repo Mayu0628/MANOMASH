@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS users (
   password      VARCHAR(20)     NOT NULL,
   introduce		VARCHAR(100)	NOT NULL,
   created_at    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updated_at    DATETIME
+  updated_at    DATETIME DEFAULT NULL
 );
 
 CREATE TABLE IF NOT EXISTS oshis (
@@ -21,8 +21,8 @@ CREATE TABLE IF NOT EXISTS oshis (
   interest		VARCHAR(1024)	NOT NULL,
   reaction_num	INTEGER UNSIGNED,
   created_at	DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updated_at	DATETIME,
-  deleted_at    DATETIME,
+  updated_at	DATETIME DEFAULT NULL,
+  deleted_at    DATETIME DEFAULT NULL,
   FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 

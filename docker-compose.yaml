@@ -19,6 +19,11 @@ services:
     image: mysql:8.0
     container_name: db-for-manomash
     # コンテナ内で使用する環境変数の値を指定
+    command:
+       - --character-set-server=utf8mb4
+       - --collation-server=utf8mb4_unicode_ci
+       - --sql-mode=ONLY_FULL_GROUP_BY,NO_ENGINE_SUBSTITUTION
+       - --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_USER: ${ROOTUSER} # MySQLのルートユーザー名
       MYSQL_ROOT_PASSWORD: ${ROOTPASS} # MySQLのルートユーザーのパスワード
@@ -33,7 +38,6 @@ services:
     volumes:
       - db-volume:/var/lib/mysql
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-      - ./my.cnf:/etc/mysql/conf.d/my.cnf
   # ボリュームの作成
 volumes:
   db-volume:

@@ -3,34 +3,35 @@ package handler
 import (
 	"MANOMASH/database"
 	"MANOMASH/model"
+	"fmt"
+	"time"
 
 	"encoding/json"
 	"net/http"
-	"strconv"
 )
 
-type UpdataUser struct {
-	UserName  string
-	Email     string
-	Password  string
-	Introduce string
-}
+// type UpdataUser struct {
+// 	UserName  string
+// 	Email     string
+// 	Password  string
+// 	Introduce string
+// }
 
 func MyPageEditHandler(w http.ResponseWriter, req *http.Request) {
-	id, err := strconv.Atoi(req.URL.Query().Get("id"))
-	if err != nil {
-		ResData := ResFlgCreate(0, "fail", 0)
-		json.NewEncoder(w).Encode(ResData)
-		return
-	}
+	// id, err := strconv.Atoi(req.URL.Query().Get("id"))
+	// if err != nil {
+	// 	ResData := ResFlgCreate(0, "ID変換失敗", 0)
+	// 	json.NewEncoder(w).Encode(ResData)
+	// 	return
+	// }
 	var reqUserData model.User
-	var checkData UpdataUser
+	//var checkData UpdataUser
 	if err := json.NewDecoder(req.Body).Decode(&reqUserData); err != nil {
-		ResData := ResFlgCreate(0, "fail", 0)
+		ResData := ResFlgCreate(0, "デコードに失敗しました", 0)
 		json.NewEncoder(w).Encode(ResData)
 		return
 	}
-	checkData.UserName, checkData.Email, checkData.Password, checkData.Introduce = reqUserData.UserName, reqUserData.Email, reqUserData.Password, reqUserData.Introduce
+	//checkData.UserName, checkData.Email, checkData.Password, checkData.Introduce = reqUserData.UserName, reqUserData.Email, reqUserData.Password, reqUserData.Introduce
 	// errMsg := Checkvariable(checkData)//リクエストに空のデータが入ってないか確認する
 	// if errMsg != ""{
 	// 	ResData := ResFlgCreate(0,"fail",0)
@@ -38,19 +39,29 @@ func MyPageEditHandler(w http.ResponseWriter, req *http.Request) {
 	// 	return
 	// }
 	var SendID model.User
-	database.DB.First(&SendID, "user_id = ?", id)
+	database.DB.First(&SendID, "user_id = ?", reqUserData.User_ID)
 	user := &model.User{
 		UserName:  reqUserData.UserName,
 		Email:     reqUserData.Email,
 		Password:  reqUserData.Password,
 		Introduce: reqUserData.Introduce,
 	}
-	database.DB.Model(user).Updates(map[string]interface{}{
-		"name":  "user3",
-		"email": "g5.taisa831@gmail.com",
+	fmt.Println(reqUserData)
+	result := database.DB.Model(user).Where("user_id = ?", reqUserData.User_ID).Updates(map[string]interface{}{
+		"user_name":  user.UserName,
+		"email":      user.Email,
+		"password":   user.Password,
+		"introduce":  user.Introduce,
+		"updated_at": time.Now(),
 	})
+	if result.Error != nil {
+		ResData := ResFlgCreate(0, "データを更新できませんでした", 0)
 
-	ResData := ResFlgCreate(1, "succesful", SendID.Id)
+		json.NewEncoder(w).Encode(ResData)
+		return
+	}
+
+	ResData := ResFlgCreate(1, "succesful", reqUserData.User_ID)
 	json.NewEncoder(w).Encode(ResData)
 	return
 }
