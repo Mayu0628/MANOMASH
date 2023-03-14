@@ -1,38 +1,45 @@
 package handler
 
 import (
-	"io"
+	"MANOMASH/database"
+	"MANOMASH/model"
+	"encoding/json"
+	"fmt"
 	"net/http"
-	"time"
 	"strconv"
 )
-
-type ResOshiData struct{
-	Status 		int
-	Result		string
-	Id			int
-	OshiName	string
-	Birthday	time.Time
-	LikePoint1	string
-	LikePoint2	string
-	LikePoint3	string
-	FreeSpace	string
-	Interest	string
-}
 
 func ProfileHandler(w http.ResponseWriter, req *http.Request) {
 	id, err := strconv.Atoi(req.URL.Query().Get("id"))
 	if err != nil {
-		ResData:= ResFlgCreate(0,"fail", 0)
+		fmt.Println("id取得失敗")
+		ResData := ResFlgCreate(0, "fail", 0)
 		json.NewEncoder(w).Encode(ResData)
 		return
 	}
-	var reqUserData model.User
-	var checkData UpdataUser
-	database.DB.Where("", reqUserData.Email).Where("password = ?", reqUserData.Password).First(&reqUserData)
-	if err := json.NewDecoder(req.Body).Decode(&reqUserData); err != nil {
-		ResData:= ResFlgCreate(0,"fail", 0)
+	var reqOshiData model.Oshi
+	result := database.DB.First(&reqOshiData, "oshi_id = ?", id)
+	if result.Error != nil {
+		ResData := ResFlgCreate(0, "DBからデータが見つかりませんでした", 0)
+
 		json.NewEncoder(w).Encode(ResData)
 		return
 	}
+
+	oshi := &model.ResOshiData{
+		Status:     1,
+		Result:     "succes",
+		Id:         reqOshiData.OshiID,
+		OshiName:   reqOshiData.OshiName,
+		Birthday:   reqOshiData.Birthday,
+		OshiMeet:   reqOshiData.OshiMeet,
+		LikePoint1: reqOshiData.LikePoint1,
+		LikePoint2: reqOshiData.LikePoint2,
+		LikePoint3: reqOshiData.LikePoint3,
+		Free_Space: reqOshiData.Free_Space,
+		Interest:   reqOshiData.Interest,
+	}
+	json.NewEncoder(w).Encode(oshi)
+	return
+
 }
