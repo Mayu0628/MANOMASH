@@ -3,15 +3,16 @@
     padding: 0;
 }
 
-.title {
-    text-align: center;
-    color: #323233;
-    font-size: 25px;
-    margin-top: 150px;
+.all {
+    display: flex;
+    margin-left: -160px;
+    margin-bottom: 150px;
 }
 
-
-
+.loose {
+    height: 500px;
+    margin: 90px auto;
+}
 
 .form-wrapper {
     font-family: 'Mochiy Pop P One';
@@ -23,7 +24,15 @@
     border-radius: 30px;
     border-color: #F8D5CE;
     
-    margin: 70px auto;  /* 中央寄せ */
+    margin: 90px auto 0px;  /* 中央寄せ */
+}
+
+/* プロフィール新規作成タイトル */
+.title { 
+    text-align: center;
+    color: #323233;
+    font-size: 25px;
+    margin-top: 150px;
 }
 
 /* 上段 */
@@ -220,5 +229,5 @@
     border: none;
 
     display: block;
-    margin: 80px auto;   /* 中央寄せ */
+    margin: 150px auto;   /* 中央寄せ */
 }
