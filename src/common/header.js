@@ -1,6 +1,7 @@
 document.getElementById("header").innerHTML = `
 <head>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/all.css">
 </head>
 <header>
     <a class="left-wrapper" href="index.html">
@@ -9,10 +10,10 @@ document.getElementById("header").innerHTML = `
     </a>
     <div class="right-wrapper">
         <ul>
-            <li><a href="mypage.html">マイページ</a></li>
-            <li><a href="gallery.html">推しを探す</a></li>
-            <li><a href="profile-add.html">＋新規作成</a></li>
-            <li class="login-btn"><div id="login_logout"></div></li>
+            <li class="li-transition"><a href="mypage.html">マイページ</a></li>
+            <li class="li-transition"><a href="gallery.html">推しを探す</a></li>
+            <li class="li-transition"><a href="profile-add.html">＋新規作成</a></li>
+            <li class="login-btn opacity-btn"><div id="login_logout"></div></li>
         </ul>
     </div>
 </header>
