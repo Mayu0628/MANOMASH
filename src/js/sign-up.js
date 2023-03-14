@@ -39,7 +39,7 @@ const displaySignUpStatus = async () => {
     obj = getSignUpInfo()
     const alert = document.getElementById('alert')
     if (obj.name === '' | obj.email === '' | obj.pass === '') {
-        alert.innerHTML = `<p>未入力の項目があります。</p>`
+        alert.innerHTML = `<p class="alert">未入力の項目があります。</p>`
         return false;
     } 
 
@@ -47,7 +47,7 @@ const displaySignUpStatus = async () => {
     console.log(postFlg.status_flg)
 
     if (postFlg.status_flg === 0) {
-       alert.innerHTML = `<p>すでに使われているメールアドレスです。</p>`
+       alert.innerHTML = `<p class ="mail-alert">すでに使われているメールアドレスです。</p>`
         return false;
     } else if (postFlg.status_flg === 1) {
         window.location.href = '../src/login.html';
