@@ -1,5 +1,5 @@
 //フォームに入力された値を取得する関数
-const getSignUpInfo = () => {
+const getLogInInfo = () => {
     const email = document.getElementById('email').value;
     const pass = document.getElementById('pass').value;
 
@@ -12,9 +12,9 @@ const getSignUpInfo = () => {
 }
 
 //Goのサーバーに取得した値を送って登録
-const PostSignUp = async (obj) => {
+const tryLogIn = async (obj) => {
     const body = JSON.stringify(obj)
-    const url = "http://localhost:8080/sign-up";
+    const url = "http://localhost:8080/login";
     const headers = {
         'Accept': 'application/json',
         'Content-Type': 'application/json charset=utf-8'
@@ -26,28 +26,29 @@ const PostSignUp = async (obj) => {
       body: body,
     });
     console.log(response)
-    const postFlg = await response.json();
-    console.log(postFlg);
-    console.log("status_flg",postFlg.status_flg)
-    return postFlg
+    const logInInfo = await response.json();
+    console.log(logInInfo);
+    console.log("status_flg",logInInfo.status)
+    return logInInfo
 };
 
-const displaySignUpStatus = async () => {
-    obj = getSignUpInfo()
+const displayLogInResult = async () => {
+    obj = getLogInInfo()
     const alert = document.getElementById('alert')
-    if (obj.name === '' | obj.email === '' | obj.pass === '') {
+    if (obj.email === '' | obj.password === '') {
         alert.innerHTML = `<p class ="alert">未入力の項目があります。</p>`
-        return false;
+        return;
     } 
 
-    postFlg = await PostSignUp(obj)
-    console.log(postFlg.status_flg)
+    logInInfo = await tryLogIn(obj)
+    console.log(logInInfo.status)
 
-    if (postFlg.status_flg === 0) {
-       alert.innerHTML = `<p class ="mail-alert">すでに使われているメールアドレスです。</p>`
-        return false;
-    } else if (postFlg.status_flg === 1) {
+    if (logInInfo.status === 0) {
+       alert.innerHTML = `<p class ="mail-alert">メールアドレスかパスワードが間違っています。</p>`
+        return ;
+    } else if (logInInfo.status === 1) {
+        document.cookie = "id=" + logInInfo.id
         window.location.href = '../src/mypage.html';
-        return true;
+        return ;
     }
 }

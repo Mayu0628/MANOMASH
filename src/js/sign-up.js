@@ -19,8 +19,12 @@ const getSignUpInfo = () => {
 }
 
 //Goのサーバーに取得した値を送って登録
-const PostSignUp = async (obj) => {
-    const body = JSON.stringify(obj)
+const trySignUp = async (obj) => {
+    const body = await JSON.stringify({
+        name: obj.name,
+        email: obj.email,
+        password: obj.password
+    })
     const url = "http://localhost:8080/sign-up";
     const headers = {
         'Accept': 'application/json',
@@ -45,21 +49,22 @@ const displaySignUpStatus = async () => {
     if (obj.name === '' | obj.email === '' | obj.pass === '') {
         alert.innerHTML = `<p class="alert">未入力の項目があります。</p>`
         return false;
-    } else if(obj.pass != obj.confirmation){
+    } else if(obj.password == obj.confirmation){
+        postFlg = await trySignUp(obj)
+        console.log(postFlg.status)
+
+        if (postFlg.status === 0) {
+        alert.innerHTML = `<p class ="mail-alert">すでに使われているメールアドレスです。</p>`
+            return false;
+        } else if (postFlg.status === 1) {
+            window.location.href = '../src/login.html';
+            return true;
+        }
+    } else {
         alert.innerHTML = `<p class="confirmation">パスワードが一致しません</p>`
         return false;
     }
 
-    postFlg = await PostSignUp(obj)
-    console.log(postFlg.status_flg)
-
-    if (postFlg.status_flg === 0) {
-       alert.innerHTML = `<p class ="mail-alert">すでに使われているメールアドレスです。</p>`
-        return false;
-    } else if (postFlg.status_flg === 1) {
-        window.location.href = '../src/login.html';
-        return true;
-    }
 }
 
 

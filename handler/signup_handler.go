@@ -5,7 +5,6 @@ import (
 	"MANOMASH/model"
 	"encoding/json"
 	"fmt"
-	"io"
 	"net/http"
 )
 
@@ -15,7 +14,7 @@ func SignUpHandler(w http.ResponseWriter, req *http.Request) {
 	if err := json.NewDecoder(req.Body).Decode(&reqUserData); err != nil {
 		fmt.Println(err)
 		http.Error(w, "fail to decode json\n", http.StatusBadRequest)
-		ResData := ResFlgCreate(0,"fail", 0 )
+		ResData := ResFlgCreate(0, "fail", 0)
 		json.NewEncoder(w).Encode(ResData)
 		return
 	}
@@ -23,7 +22,7 @@ func SignUpHandler(w http.ResponseWriter, req *http.Request) {
 	var SendID model.User
 	result := database.DB.First(&SendID, "email = ?", reqUserData.Email)
 	if result.Error != nil {
-		result = database.DB.Create(&SendID)
+		result = database.DB.Create(&reqUserData)
 		ResData := ResFlgCreate(1, "succesful", SendID.Id)
 
 		if err := json.NewEncoder(w).Encode(ResData); err != nil {
@@ -32,11 +31,9 @@ func SignUpHandler(w http.ResponseWriter, req *http.Request) {
 			json.NewEncoder(w).Encode(ResData)
 			return
 		}
-		io.WriteString(w, "アカウントが作成されました\n")
 		return
 	}
 	ResData := ResFlgCreate(0, "fail", 0)
 	json.NewEncoder(w).Encode(ResData)
-	io.WriteString(w, "そのメールアドレスは既に使用されています\n")
 	return
 }
