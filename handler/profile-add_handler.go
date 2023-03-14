@@ -1,43 +1,35 @@
 package handler
 
 import (
-	"MANOMASH/model"
 	"MANOMASH/database"
+	"MANOMASH/model"
+	"encoding/json"
 	"fmt"
 	"net/http"
-	"strconv"
-	"encoding/json"
 )
 
 func ProfileAddHandler(w http.ResponseWriter, req *http.Request) {
-	id, err := strconv.Atoi(req.URL.Query().Get("id"))
-	if err != nil {
-		ResData:= ResFlgCreate(0,"fail", 0)
-		json.NewEncoder(w).Encode(ResData)
-		return
-	}
 	var reqOshiData model.Oshi
 	if err := json.NewDecoder(req.Body).Decode(&reqOshiData); err != nil {
-		ResData := ResFlgCreate(0,"fail", 0 )
+		ResData := ResFlgCreate(0, "fail", 0)
 		json.NewEncoder(w).Encode(ResData)
 		return
 	}
-	reqUserData.Id
-	addDate := model.Oshi{
-		OshiName: reqOshiData.OshiName,
-		Birthday: reqOshiData.Birthday,
-		OshiMeet: reqOshiData.OshiMeet,
-		LikePoint1:reqOshiData.LikePoint1,
-		LikePoint2:reqOshiData.LikePoint2,
-		LikePoint3:reqOshiData.LikePoint3,
-		Free_space:reqOshiData.Free_space,
-		Interest: reqOshiData.Interest,
+	addData := model.Oshi{
+		OshiName:   reqOshiData.OshiName,
+		Birthday:   reqOshiData.Birthday,
+		OshiMeet:   reqOshiData.OshiMeet,
+		LikePoint1: reqOshiData.LikePoint1,
+		LikePoint2: reqOshiData.LikePoint2,
+		LikePoint3: reqOshiData.LikePoint3,
+		Free_Space: reqOshiData.Free_Space,
+		Interest:   reqOshiData.Interest,
 	}
-	var SendID model.User
-	database.DB.First(&SendID, "user_id = ?", id)
-	database.DB.Create(&addDate)
-	fmt.Println(addDate)
-	ResData := ResFlgCreate(1, "succesful", SendID.Id)
+	var SendID model.Oshi
+	database.DB.First(&SendID, "user_id = ?", reqOshiData.UserID)
+	database.DB.Create(&addData)
+	fmt.Println(addData)
+	ResData := ResFlgCreate(1, "succesful", uint(SendID.OshiID))
 	if err := json.NewEncoder(w).Encode(ResData); err != nil {
 		fmt.Println(err)
 		ResData := ResFlgCreate(0, "fail", 0)
