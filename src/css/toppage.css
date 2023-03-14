@@ -1,0 +1,11 @@
+.top-wrapper {
+    padding: 180px 0 100px 0;
+    height: 420px;
+    background-image: url(../images/top-img.png);
+    background-size: cover;
+    text-align: center;
+}
+
+.container {
+    text-align: left;
+}
