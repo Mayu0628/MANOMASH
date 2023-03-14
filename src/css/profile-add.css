@@ -3,6 +3,16 @@
     padding: 0;
 }
 
+.title {
+    text-align: center;
+    color: #323233;
+    font-size: 25px;
+    margin-top: 150px;
+}
+
+
+
+
 .form-wrapper {
     font-family: 'Mochiy Pop P One';
     color: #8B5654;
@@ -13,7 +23,7 @@
     border-radius: 30px;
     border-color: #F8D5CE;
     
-    margin: 0 auto;  /* 中央寄せ */
+    margin: 70px auto;  /* 中央寄せ */
 }
 
 /* 上段 */
@@ -79,7 +89,7 @@
     color: #8B5654;
     background-color: #F8D5CE;
     border-radius: 5px;
-    border-color: #F8D5CE;
+    border-color: #fff;
     width: 150px;
     height: 150px;
     cursor: pointer;
@@ -162,12 +172,11 @@
     margin-top: 10px;
 
     border-radius: 30px;
-    border-color: #fff;
-    border: none;
+    border-color: #F8D5CE;
 }
 
 .care {
-    font-size: 20px;
+    font-size: 15px;
     text-align: center;
     margin-top: 10px;
 }
@@ -179,12 +188,28 @@
     margin-top: -25px;
 
     border-radius: 30px;
-    border-color: #fff;
-    border: none;
+    border-color: #F8D5CE;
 }
 
 .care p{
     position: relative;
     z-index: 100;
     margin-top: 5px;
+    text-align:left;
+    margin-left: 50px;
+    padding-top: 10px;
+}
+
+.button {
+    background-color: #E9725D;
+    width: 206px;
+    height: 52px;
+    color: #FFF;
+    font-size: 18px;
+    
+    border-radius: 30px;
+    border: none;
+
+    display: block;
+    margin: 80px auto;   /* 中央寄せ */
 }
