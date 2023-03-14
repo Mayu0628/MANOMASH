@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 func LoginHandler(w http.ResponseWriter, req *http.Request) {
@@ -28,5 +29,10 @@ func LoginHandler(w http.ResponseWriter, req *http.Request) {
 	}
 	ResData := ResFlgCreate(1,"succesful")
 	fmt.Println("ログインに成功しました")
+	expiration := time.Now()
+    expiration = expiration.AddDate(0, 0, 1)
+    cookie := http.Cookie{Name: reqUserData.Email, Value: reqUserData.Email, Expires: expiration}
+	fmt.Println(cookie)
+	http.SetCookie(w, &cookie)
 	json.NewEncoder(w).Encode(ResData)
 }
