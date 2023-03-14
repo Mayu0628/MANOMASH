@@ -20,10 +20,10 @@ func SignUpHandler(w http.ResponseWriter, req *http.Request) {
 	}
 
 	var SendID model.User
-	result := database.DB.First(&SendID, "email = ?", reqUserData.Email)
+	result := database,DB.First(&SendID,"email = ?",reqUserData.Email)
 	if result.Error != nil {
 		result = database.DB.Create(&reqUserData)
-		ResData := ResFlgCreate(1, "succesful", SendID.Id)
+		ResData := ResFlgCreate(1, "succesful", result.Id)
 
 		if err := json.NewEncoder(w).Encode(ResData); err != nil {
 			fmt.Println(err)

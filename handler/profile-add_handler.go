@@ -22,6 +22,7 @@ func ProfileAddHandler(w http.ResponseWriter, req *http.Request) {
 		json.NewEncoder(w).Encode(ResData)
 		return
 	}
+	reqUserData.Id
 	addDate := model.Oshi{
 		OshiName: reqOshiData.OshiName,
 		Birthday: reqOshiData.Birthday,
@@ -35,6 +36,7 @@ func ProfileAddHandler(w http.ResponseWriter, req *http.Request) {
 	var SendID model.User
 	database.DB.First(&SendID, "user_id = ?", id)
 	database.DB.Create(&addDate)
+	fmt.Println(addDate)
 	ResData := ResFlgCreate(1, "succesful", SendID.Id)
 	if err := json.NewEncoder(w).Encode(ResData); err != nil {
 		fmt.Println(err)
@@ -42,5 +44,4 @@ func ProfileAddHandler(w http.ResponseWriter, req *http.Request) {
 		json.NewEncoder(w).Encode(ResData)
 		return
 	}
-	return
 }

@@ -41,30 +41,34 @@ func MyPageEditHandler(w http.ResponseWriter, req *http.Request) {
 	}
 	var SendID model.User
 	database.DB.First(&SendID, "user_id = ?", id)
-	user := model.User {
+	user := &model.User {
 		UserName : reqUserData.UserName,
 		Email : reqUserData.Email,
 		Password : reqUserData.Password,
 		Introduce : reqUserData.Introduce,
 	}
-	database.DB.Model(&SendID).Where("email = ?", SendID.Email).Updates(user)
+	db.Model(user).Updates(map[string]interface{}{
+        "name": "user3", 
+        "email": "g5.taisa831@gmail.com",
+    }
+)
 	ResData:= ResFlgCreate(1, "succesful", SendID.Id)
 	json.NewEncoder(w).Encode(ResData)
 	return
 }
 
-func Checkvariable(UsDt UpdataUser) (err string){
-	fmt.Println(UsDt)
-	VarNum := reflect.ValueOf(UsDt)
-	VarType := reflect.TypeOf(UsDt)
-	for i := 0; i < 4; i++ {
-		Field := VarType.Field(i)
-		VarInfo := VarNum.FieldByName(Field.Name).Interface()
-        if VarInfo == "" {
-			fmt.Printf("%s is null \n", Field.Name)
-			err := "no value"
-			return err
-        }
-	}
-	return ""
-}
+//unc Checkvariable(UsDt UpdataUser) (err string){
+//	fmt.Println(UsDt)
+//	VarNum := reflect.ValueOf(UsDt)
+//	VarType := reflect.TypeOf(UsDt)
+//	for i := 0; i < 4; i++ {
+//		Field := VarType.Field(i)
+//		VarInfo := VarNum.FieldByName(Field.Name).Interface()
+//       if VarInfo == "" {
+//			fmt.Printf("%s is null \n", Field.Name)
+//			err := "no value"
+//			return err
+//       }
+//	}
+//	return ""
+//
