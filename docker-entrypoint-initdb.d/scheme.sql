@@ -1,16 +1,16 @@
 CREATE TABLE IF NOT EXISTS users (
-  id       INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  user_id       INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   user_name     VARCHAR(40)     NOT NULL,
   email         VARCHAR(254)     NOT NULL,
   password      VARCHAR(20)     NOT NULL,
   introduce		VARCHAR(100)	NOT NULL,
   created_at    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updated_at    DATETIME,
-  deleted_at    DATETIME
+  updated_at    DATETIME
 );
 
 CREATE TABLE IF NOT EXISTS oshis (
   oshi_id		INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  user_id   INTEGER UNSIGNED,
   oshi_name		VARCHAR(100)	NOT NULL,
   birthday		DATETIME 			NOT NULL,
   oshi_meet		VARCHAR(1024)	NOT NULL,
@@ -19,7 +19,8 @@ CREATE TABLE IF NOT EXISTS oshis (
   reaction_num	INTEGER UNSIGNED,
   created_at	DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at	DATETIME,
-  deleted_at    DATETIME
+  deleted_at    DATETIME,
+  FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS tag (
@@ -51,5 +52,5 @@ CREATE TABLE IF NOT EXISTS comments (
   updated_at    DATETIME,
   deleted_at    DATETIME,
   FOREIGN KEY (oshi_id) REFERENCES oshis(oshi_id) ON DELETE CASCADE,
-  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+  FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
