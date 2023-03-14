@@ -9,6 +9,20 @@ const getID = cookielist.filter((value)=>{
 
 const login_logout = document.getElementById('login_logout')
 if (getID.length !== 0) {
-    login_logout.innerText = 'ログアウト';
-    login_logout.href = "index.html";
+    login_logout.innerHTML = `
+        <a id="login_logout" class=login-link href="login.html" onclick="logOut()">ログアウト</a>
+    `
+    // login_logout.innerText = 'ログアウト';
+    // login_logout.href = "index.html";
+} else {
+    login_logout.innerHTML = `
+        <a id="login_logout" class=login-link href="login.html">ログイン</a>
+    `
+}
+
+const logOut = () => {
+    document.cookie = "id="
+    login_logout.innerHTML = `
+        <a id="login_logout" class=login-link href="login.html">ログイン</a>
+    `
 }
