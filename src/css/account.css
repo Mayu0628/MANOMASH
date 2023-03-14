@@ -23,6 +23,7 @@ body {
     
     border-radius: 30px;
     border-color: #E9725D;
+    border: none;
 
     display: block;
     margin: 40px auto;   /* 中央寄せ */

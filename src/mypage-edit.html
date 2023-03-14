@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>推しプロフィール帳</title>
+    <link rel="icon" href="images/osiprofile-icon.ico">
+    <link rel="stylesheet" href="css/mypage.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+    <div id="header"></div>
+
+    <form action="">
+    <div class="form-wrapper">
+        <div class="user-information">
+
+            <!-- ユーザーの画像いれる -->
+            <img src="https://placehold.jp/150x150.png"><br>
+            <input type="file" name="" id="" value=""><br>
+            <input type="text" class="edit-username" value="{{.ユーザーの名前}}"><br>
+            <textarea class="edit-usercomment" name="" id="" cols="30" rows="0">{{.ユーザーのコメント}}</textarea>
+        </div>
+
+        <div>
+            <input class="edit-done-btn" type="submit" value="編集完了">
+        </div>
+    </div>
+
+    </form>
+
+
+    <div id="footer"></div>
+    
+    <script src="./common/header.js"></script>
+    <script src="./common/footer.js"></script>
+</body>
+</html>
+
