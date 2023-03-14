@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 )
 
@@ -18,19 +17,17 @@ func SignUpHandler(w http.ResponseWriter, req *http.Request) {
 		fmt.Println(err)
 		http.Error(w, "fail to decode json\n", http.StatusBadRequest)
 	}
-	user := model.User{
-		UserName: reqUserData.UserName,
-		Email:    reqUserData.Email,
-		Password: reqUserData.Password,
-	}
-	result := database.DB.First(&user, "email = ?", reqUserData.Email)
+
+	result := database.DB.First(&reqUserData, "email = ?", reqUserData.Email)
 	if result.Error != nil {
-		result = database.DB.Create(&user)
+		result = database.DB.Create(&reqUserData)
 
 		ResData := ResFlgCreate(1, "succesful")
-		log.Fatal(result.Error)
 		if err := json.NewEncoder(w).Encode(ResData); err != nil {
+			ResData := ResFlgCreate(0, "fail")
+			json.NewEncoder(w).Encode(ResData)
 			fmt.Println(err)
+			return
 		}
 		fmt.Println(ResData)
 
@@ -41,4 +38,5 @@ func SignUpHandler(w http.ResponseWriter, req *http.Request) {
 	ResData := ResFlgCreate(0, "fail")
 	json.NewEncoder(w).Encode(ResData)
 	io.WriteString(w, "そのメールアドレスは既に使用されています\n")
+	return
 }
