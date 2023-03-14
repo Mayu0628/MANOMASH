@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="css/profile-add.css">
-        <link href='http://fonts.googleapis.com/css?family=Mochiy Pop P One' rel='stylesheet'>
-    </head>  
+  <head>
+    <meta charset="utf-8">
+    <title>推しプロフィール帳</title>
+    <link rel="icon" href="images/osiprofile-icon.ico">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/profile-add.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link href='http://fonts.googleapis.com/css?family=Mochiy Pop P One' rel='stylesheet'>
+  </head>  
 
-    <body>
+  <body>
     <!-- ヘッダー -->
-    <!-- <div id="header"></div> -->
+    <div id="header"></div>
+
+      <h1 class="title">プロフィール新規作成</h1>
 
     <!-- 中身 -->
     <!-- 上段 -->
@@ -59,8 +66,8 @@
           <p>~推しとの思い出~</p>
             <div class="text">
               <label for="">推し始めたのは<input type="text" style="width:250px; height: 15px;">で、</label>
-              <label for="">推しとの出会いは<input type="text" style="width:340px; height: 15px;">だよ！</label>
-              <label for="">第一印象は<input type="text" style="width:280px; height: 15px;">で、</label>
+              <label for="">推しとの出会いは<input type="text" style="width:330px; height: 15px;">だよ！</label>
+              <label for="">第一印象は<input type="text" style="width:270px; height: 15px;">で、</label>
               <label for="">今は<input type="text" style="width:350px; height: 15px;">だと思ってるよ！</label>
             </div>
         </div>
@@ -68,21 +75,25 @@
 
       <!-- 下段 -->
       <div class="free">
-        <p>- - - - - - - - - - - FREE SPACE - - - - - - - - - - -</p>
-        <input type="text" name="word">
+        <p>- - - - - - - - - - - - - - - - - FREE SPACE - - - - - - - - - - - - - - - - -</p>
+        <textarea type="text" name="word" rows="5" cols="33"></textarea>
       </div>
 
       <div class="care">
         <p>気になったら・・・</p>
-        <input type="text" name="word">
-      </div>
-
-      <div class="button-panel1">
-        <input type="submit" class="button" title="作成" value="作成" id="btn"></input>
+        <textarea type="text" name="word" rows="5" cols="33"></textarea>
       </div>
     </form>
-    </div>
-    <!-- <script src="./common/header.js"></script> -->
-    </body>
-</html>
 
+    <div class="button-panel1">
+      <input type="submit" class="button" title="作成" value="作成" id="btn"></input>
+    </div>
+
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="./common/header.js"></script>
+    <script src="./common/footer.js"></script>
+  </body>
+</html>
