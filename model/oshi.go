@@ -1,6 +1,9 @@
 package model
 
-import "time"
+import (
+	"gorm.io/gorm"
+	"time"
+)
 
 type Oshi struct {
 	OshiID		 int	    `db:"oshi_id" form:"oshi_id" json:"oshi_id"`
@@ -13,7 +16,6 @@ type Oshi struct {
 	Free_space	 string     `db:"free_space" form:"free_space" json:"free_space"`
 	Interest	 string     `db:"interest" form:"interest" json:"interest"`
 	Reaction_Num int	    `db:"reaction_num" form:"reaction_num" json:"reaction_num"`
-	CreatedAt	 time.Time  `db:"created_at" form:"created_at" json:"created_at"`
-	UpdatedAt	 time.Time  `db:"updated_at" form:"updated_at" json:"updated_at"`
+	gorm.Model
 }
 
