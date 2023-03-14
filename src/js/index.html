@@ -1,0 +1,25 @@
+
+<html>
+<head>
+<title>submitのテスト</title>
+<script type="text/javascript">
+function test()
+{
+	if (f1.arg1.value == "" )
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+</script>
+</head>
+<body>
+<form name="f1" action="http://www.yahoo.co.jp" method="post">
+<INPUT TYPE="text" name="arg1" />
+<INPUT type=submit onclick="return test()" name="sub1"/>
+</form>
+</body>
+</html>
