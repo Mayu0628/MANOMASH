@@ -27,6 +27,7 @@ func main() {
 	r.HandleFunc("/profile/edit", handler.ProfileEditHandler).Methods(http.MethodPost)
 	r.HandleFunc("/profile/delete", handler.ProfileDeleteHandler).Methods(http.MethodDelete)
 	r.HandleFunc("/toppage", handler.TopPageHandler).Methods(http.MethodGet)
+	r.HandleFunc("/getcookie", handler.GetCookieHandler).Methods(http.MethodGet)
 
 	handler := c.Handler(r)
 	http.ListenAndServe(":8080", handler)
