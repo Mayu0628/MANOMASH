@@ -5,13 +5,16 @@
 
 .all {
     display: flex;
-    margin-left: -160px;
+    justify-content: center;
+    margin-left: 80px;
     margin-bottom: 150px;
+    position: relative;
 }
 
 .loose {
     height: 500px;
-    margin: 90px auto;
+    position: absolute;
+    margin-left: -60px;
 }
 
 .form-wrapper {
@@ -24,7 +27,7 @@
     border-radius: 30px;
     border-color: #F8D5CE;
     
-    margin: 90px auto 0px;  /* 中央寄せ */
+    z-index: 9;
 }
 
 /* プロフィール新規作成タイトル */
@@ -32,7 +35,8 @@
     text-align: center;
     color: #323233;
     font-size: 25px;
-    margin-top: 150px;
+    margin-top: 130px;
+    margin-bottom: 70px;
 }
 
 /* 上段 */
