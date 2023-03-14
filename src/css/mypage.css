@@ -90,3 +90,38 @@ a {
     padding: 4px 16px;
     margin-right: 15px;
 }
+
+form {
+    margin-top: 191px;
+}
+
+.edit-usericon {
+    display: none;
+}
+
+.edit-done-btn {
+    background-color: #E9725D;
+    width: 206px;
+    height: 52px;
+    color: #FFF;
+    font-size: 18px;
+    
+    border-radius: 30px;
+    border-color: #E9725D;
+    border: none;
+
+    display: block;
+    margin: 90px auto;   /* 中央寄せ */
+}
+
+.form-wrapper {
+
+}
+
+.edit-username {
+    font-size: 32px;
+    font-weight: 700;
+
+    margin: 20px;
+}
+
