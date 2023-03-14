@@ -1,11 +1,11 @@
 INSERT INTO users (
-  id,user_name, email, password, introduce, created_at, updated_at
+  user_id, user_name, email, password, introduce, created_at, updated_at
 ) VALUES (
   1,'木下真菜', 'hoge@hoge.com', 'password', '私は木下真菜です。', now(), now()
 );
 
 INSERT INTO users (
-  id,user_name, email, password, introduce, created_at, updated_at
+  user_id, user_name, email, password, introduce, created_at, updated_at
 ) VALUES (
   2,'二瓶俊介', 'nihei@hoge.com', 'password。', '私は二瓶俊介です。', now(), now()
 );

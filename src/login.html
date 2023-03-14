@@ -16,16 +16,16 @@
     <form>
       <div class="form-item">
         <label for="email"></label>
-        <input type="email" name="email" required="required" placeholder="メールアドレス"></input>
+        <input id="email" type="email" name="email" required="required" placeholder="メールアドレス"></input>
       </div>
 
       <div class="form-item">
         <label for="password"></label>
-        <input type="password" name="password" required="required" placeholder="パスワード"></input>
+        <input id="pass" type="password" name="password" required="required" placeholder="パスワード"></input>
       </div>
 
       <div class="button-panel1">
-        <input type="submit" class="button" title="ログイン" value="ログイン" id="btn"></input>
+        <input type="submit" class="button" title="ログイン" value="ログイン" id="btn" onclick="displaySignUpStatus();"/></input>
       </div>
 
       <div class="form-footer">
@@ -36,7 +36,7 @@
   </div>
 
   <div id="footer"></div>
-  
+  <script src="./js/login.js"></script>
   <script src="./common/header.js"></script>
   <script src="./common/footer.js"></script>
 </body>
