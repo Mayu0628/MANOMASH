@@ -33,9 +33,9 @@ func ProfileHandler(w http.ResponseWriter, req *http.Request) {
 		OshiName:   reqOshiData.OshiName,
 		Birthday:   reqOshiData.Birthday,
 		OshiMeet:   reqOshiData.OshiMeet,
-		LikePoint1: reqOshiData.LikePoint1,
-		LikePoint2: reqOshiData.LikePoint2,
-		LikePoint3: reqOshiData.LikePoint3,
+		OshiLike1:  reqOshiData.OshiLike1,
+		OshiLike2:  reqOshiData.OshiLike2,
+		OshiLike3:  reqOshiData.OshiLike3,
 		Free_Space: reqOshiData.Free_Space,
 		Interest:   reqOshiData.Interest,
 	}
