@@ -1,14 +1,11 @@
 //フォームに入力された値を取得する関数
 const getSignUpInfo = () => {
-    const user_name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const pass = document.getElementById('pass').value;
 
-    console.log(user_name);
     console.log(email);
     console.log(pass);
     return {
-        name: user_name,
         email: email,
         password: pass
     }
@@ -39,7 +36,7 @@ const displaySignUpStatus = async () => {
     obj = getSignUpInfo()
     const alert = document.getElementById('alert')
     if (obj.name === '' | obj.email === '' | obj.pass === '') {
-        alert.innerHTML = `<p class="alert">未入力の項目があります。</p>`
+        alert.innerHTML = `<p class ="alert">未入力の項目があります。</p>`
         return false;
     } 
 
@@ -50,10 +47,7 @@ const displaySignUpStatus = async () => {
        alert.innerHTML = `<p class ="mail-alert">すでに使われているメールアドレスです。</p>`
         return false;
     } else if (postFlg.status_flg === 1) {
-        window.location.href = '../src/login.html';
+        window.location.href = '../src/mypage.html';
         return true;
     }
 }
-
-
-

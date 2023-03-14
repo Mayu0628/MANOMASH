@@ -19,15 +19,21 @@ func SignUpHandler(w http.ResponseWriter, req *http.Request) {
 		json.NewEncoder(w).Encode(ResData)
 		return
 	}
+
 	var SendID model.User
 	result := database.DB.First(&SendID, "email = ?", reqUserData.Email)
 	if result.Error != nil {
 		result = database.DB.Create(&SendID)
 		ResData := ResFlgCreate(1, "succesful", SendID.Id)
+
 		if err := json.NewEncoder(w).Encode(ResData); err != nil {
+			ResData := ResFlgCreate(0, "fail")
+			json.NewEncoder(w).Encode(ResData)
 			fmt.Println(err)
+
 			ResData := ResFlgCreate(0, "fail", 0)
 			json.NewEncoder(w).Encode(ResData)
+
 			return
 		}
 		io.WriteString(w, "アカウントが作成されました\n")
