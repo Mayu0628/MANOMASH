@@ -6,8 +6,21 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"time"
 	"encoding/json"
 )
+
+type AddOshiData struct{
+		OshiID		int
+		Id			uint
+		OshiName	string
+		Birthday	time.Time
+		LikePoint1	string
+		LikePoint2	string
+		LikePoint3	string
+		FreeSpace	string
+		Interest	string
+	}
 
 func ProfileAddHandler(w http.ResponseWriter, req *http.Request) {
 	id, err := strconv.Atoi(req.URL.Query().Get("id"))
@@ -22,18 +35,15 @@ func ProfileAddHandler(w http.ResponseWriter, req *http.Request) {
 		json.NewEncoder(w).Encode(ResData)
 		return
 	}
-	database.DB.First(&reqOshiData, "user_id = ?", id)
+	var SetOshiData AddOshiData
+	database.DB.First(&SetOshiData, "user_id = ?", id)
 	database.DB.Create(&reqOshiData)
-	ResData := ResFlgCreate(1, "succesful", id)
-
+	ResData := ResFlgCreate(1, "succesful", SetOshiData.Id)
 	if err := json.NewEncoder(w).Encode(ResData); err != nil {
 		fmt.Println(err)
 		ResData := ResFlgCreate(0, "fail", 0)
 		json.NewEncoder(w).Encode(ResData)
 		return
-	return
 	}
-	ResData := ResFlgCreate(0, "fail", 0)
-	json.NewEncoder(w).Encode(ResData)
 	return
 }
