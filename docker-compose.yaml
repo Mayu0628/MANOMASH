@@ -18,12 +18,6 @@ services:
   db:
     image: mysql:8.0
     container_name: db-for-manomash
-    # MySQLの設定値を指定
-    command:
-      - --character-set-server=utf8mb4
-      - --collation-server=utf8mb4_unicode_ci
-      - --sql-mode=ONLY_FULL_GROUP_BY,NO_ENGINE_SUBSTITUTION
-      - --default-authentication-plugin=mysql_native_password
     # コンテナ内で使用する環境変数の値を指定
     environment:
       MYSQL_ROOT_USER: ${ROOTUSER} # MySQLのルートユーザー名
