@@ -2,37 +2,33 @@ package handler
 
 import (
 	"MANOMASH/database"
+	"MANOMASH/model"
 
 	"net/http"
-	"log"
-	"fmt"
 	"encoding/json"
+	"strconv"
 )
 
 func MyPageHandler(w http.ResponseWriter, req *http.Request) {
-	cookies := req.Cookies()
-	type User struct{
-		Id int
-		UserName string
-		Email string
-		Password string
-		Introduce string
-	}
-	if cookies != nil{
-    for _, c := range cookies {
-		var result User
-        email := c.Value
-		log.Print("Name:", c.Name, "Value:", c.Value)
-		database.DB.Raw("SELECT id, user_name, email, password, introduce FROM users WHERE email = ?", email).Scan(&result) // (*sql.Row)
-		fmt.Println(result)
-		fmt.Println(result.Email)
-		ResData:= ResFlgCreate(1,"succesful")
+	id, err := strconv.Atoi(req.URL.Query().Get("id"))
+	if err != nil {
+		ResData:= ResFlgCreate(0,"fail", 0)
 		json.NewEncoder(w).Encode(ResData)
-		json.NewEncoder(w).Encode(result)
 		return
-    }
 	}
-	fmt.Print("クッキーがないです")
-	ResData:= ResFlgCreate(0,"fail")
-	json.NewEncoder(w).Encode(ResData)
+	type ResData struct{
+		Status 		int
+		Result 		string
+		UserID 		int
+		UserName 	string
+		Introduce 	string
+		OshiName 	string
+	}
+	var SendID model.User
+	var Response ResData
+	var OshiData model.Oshi
+	database.DB.First(&SendID, "user_id = ?", id)
+	database.DB.First(&OshiData, "user_id = ?", id)
+	Response.Status, Response.Result, Response.UserID, Response.UserName, Response.Introduce, Response.OshiName = 1, "succesful", id, SendID.UserName, SendID.Introduce, OshiData.OshiName 
+	json.NewEncoder(w).Encode(Response)
 }
