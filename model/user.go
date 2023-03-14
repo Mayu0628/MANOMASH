@@ -13,4 +13,3 @@ type User struct {
 	Created_At	time.Time `db:"created_at" form:"created_at" json:"created_at"`
 	Updated_At	time.Time `db:"updated_at" form:"updated_at" json:"updated_at"`
 }
-
