@@ -91,10 +91,6 @@ a {
     margin-right: 15px;
 }
 
-form {
-    margin-top: 191px;
-}
-
 .edit-usericon {
     display: none;
 }
@@ -115,13 +111,23 @@ form {
 }
 
 .form-wrapper {
+    font-size: 20px;
+}
 
+form label {
+    font-size: 17px;
 }
 
 .edit-username {
-    font-size: 32px;
-    font-weight: 700;
-
+    font-size: 18px;
+    padding: 10px;
     margin: 20px;
 }
 
+.edit-usercomment {
+    height: 70px;
+    width: 600px;
+    font-weight: normal;
+    font-size: 18px;
+    padding: 15px;
+}
