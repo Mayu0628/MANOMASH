@@ -1,13 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    text-align: center;
+    color: #323233;
+    font-size: 25px;
+    margin-top: 150px;
+}
+
+
+
+
 .form-wrapper {
     font-family: 'Mochiy Pop P One';
     color: #8B5654;
     background-color: #F8D5CE;
+    width: 700px;
+    height: 920px;
 
     border-radius: 30px;
     border-color: #F8D5CE;
     
-    width: 650px;
-    display: block;
-    margin: -100px auto;   /* 中央寄せ */
+    margin: 70px auto;  /* 中央寄せ */
 }
 
+/* 上段 */
+.upper-row {
+    display:flex;
+    padding: auto;
+    margin: auto;
+}
+
+/* upper-left */
+.upper-left {
+    width: 70%;
+    margin-right: 80px;
+}
+
+.upper-left h1 {
+    font-size: 50px;
+    padding: 30px 0 0 30px; 
+    margin-bottom: -15px;
+    font-family: Lexend;
+    color: #fff;
+}
+
+.date {
+    text-align: center;
+    border:none;
+    color: #fff;
+    background-color: #F8D5CE;
+    font-family: Mochiy Pop P One;
+    font-size: 20px;
+    margin-left: 200px;
+}
+
+.upper-left label {
+    font-size: 20px;
+    padding-right: 20px;
+    margin-left: 30px;
+}
+
+.upper-left input {
+    border-radius: 30px;
+    border-color: #F8D5CE;
+    padding-left: 10px;
+}
+
+.upper-left p {
+    margin: -5px 0 0 30px;
+    color: #fff;
+}
+
+/* upper-right 上段右  */
+.upper-right {
+    margin-top: 30px;
+    margin-left: -120px;
+    background-color: #fff;
+    border-radius: 5px;
+    border-color: #fff;
+    width: 30%;
+    height: 230px;
+}
+
+.picture {
+    color: #8B5654;
+    background-color: #F8D5CE;
+    border-radius: 5px;
+    border-color: #fff;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;  /* 中央寄せ */
+}
+
+.picture input[type="file"] {
+    display: none;
+}
+
+
+
+/* 中段 */
+.question {
+    display: flex;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* ランキング */
+.ranking {
+    display:flex;
+    flex-flow: column; /* 縦並び */
+    width: 40%;
+    margin-top: 10px;
+}
+
+.ranking input {
+    background: #FFFFFF;
+
+    border-radius: 30px;
+    border-color: #F8D5CE;
+
+    margin-left: 10px;
+    margin-top: 10px;
+    padding-left: 5px;
+}
+
+
+/* 思い出 */
+.memory {
+    display:flex;
+    flex-flow: column;
+    width: 60%;
+}
+
+.text {
+    background-color: #fff;
+    height: 150px;
+    
+    margin-right: 28px;
+    margin-top: 5px;
+    padding: 10px ;
+
+    font-size: 14px;
+
+    border-radius: 30px;
+    border: none;
+}
+
+.memory input {
+    border-radius: 30px;
+    border-color: #F8D5CE;
+    padding-left: 5px;
+}
+
+/* 下段 */
+.free {
+    text-align: center;
+    font-size: 20px;
+
+    margin-top: 10px;
+}
+
+.free textarea {
+    width: 90%;
+    height: 170px;
+    font-size: 15px;
+
+    margin-top: 10px;
+
+    padding: 15px 10px 10px 10px;
+
+    border-radius: 30px;
+    border-color: #F8D5CE;
+}
+
+.care {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.care textarea {
+    width: 90%;
+    height: 100px;
+    font-size: 15px;
+
+    margin-top: -25px;
+
+    padding: 30px 10px 10px 10px;
+
+    border-radius: 30px;
+    border-color: #F8D5CE;
+}
+
+.care p{
+    text-align:left;
+
+    position: relative;
+    z-index: 100;
+
+    margin-top: 5px;
+    margin-left: 50px;
+    padding-top: 10px;
+}
+
+.button {
+    background-color: #E9725D;
+    width: 206px;
+    height: 52px;
+    color: #FFF;
+    font-size: 18px;
+    
+    border-radius: 30px;
+    border: none;
+
+    display: block;
+    margin: 80px auto;   /* 中央寄せ */
+}
