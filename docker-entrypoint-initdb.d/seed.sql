@@ -13,7 +13,7 @@ INSERT INTO users (
 INSERT INTO oshis (
   oshi_name, birthday, oshi_meet, oshi_like1, oshi_like2, oshi_like3 ,free_space, interest, reaction_num, created_at, updated_at
 ) VALUES (
-  '中村ゆきの', '20190907', A, B, C, 'もし会えたら一緒にサッカーをしたいです！！', '自由に記入しちゃうよ！', '推しについて気になったらここをみてね！！', 5, now(), now()
+  '中村ゆきの', '20190907', 'もし会えたら一緒にサッカーをしたいです！！', 'A', 'B', 'C',  '自由に記入しちゃうよ！', '推しについて気になったらここをみてね！！', 5, now(), now()
 );
 
 INSERT INTO comments (

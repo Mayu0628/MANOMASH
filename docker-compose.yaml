@@ -33,6 +33,7 @@ services:
     volumes:
       - db-volume:/var/lib/mysql
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
   # ボリュームの作成
 volumes:
   db-volume:
