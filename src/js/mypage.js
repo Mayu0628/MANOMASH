@@ -1,5 +1,4 @@
 const getMypageInfo = async () => {
-    document.cookie = "Name=test@test.com";
     await console.log("cookie", document.cookie);
     const url = "http://localhost:8080/getcookie"
     const headers = {
@@ -16,15 +15,13 @@ const getMypageInfo = async () => {
     console.log("mypageInfo",mypageInfo)
     
 }
-
-//window.onload = getMypageInfo()
 const obj = {
     id: 1,
     username: 'momii',
     introduce: 'よろしくおねがいします！！'
 }
 
-
+document.cookie = "Name=ji";
 
 const user_name = document.getElementById('user_name')
 console.log(user_name)
