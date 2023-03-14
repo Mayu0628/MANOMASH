@@ -17,9 +17,9 @@
 
     <div class="user-information">
         <img src="https://placehold.jp/150x150.png">
-        <h1>{{.ユーザーの名前}}</h1>
-        <p>{{.ユーザーID}}</p>
-        <p class="user-comment">{{.ユーザーのコメント}}</p>
+        <h1 id="user_name"></h1>
+        <p id="user_id"></p>
+        <p class="user_comment" id="user_comment"></p>
     </div>
 
     <div class="osiprofiles">
@@ -28,7 +28,7 @@
         <a class="osiprofile" href="">
             <img src="https://placehold.jp/150x150.png">
             <div class="osiprofile-information">
-                <h2>{{.推しの名前}}</h2>
+                <h2 id="">推しの名前</h2>
                 <div class="tags">
                     <ul>
                         <li>タグ１</li>
@@ -45,5 +45,6 @@
 
     <script src="./common/header.js"></script>
     <script src="./common/footer.js"></script>
+    <script src="./js/mypage.js"></script>
 </body>
 </html>
