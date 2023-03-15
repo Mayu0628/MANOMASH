@@ -5,7 +5,7 @@
     <title>推しプロフィール帳</title>
     <link rel="icon" href="images/osiprofile-icon.ico">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/profile-add.css">
+    <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/footer.css">
     <link href='http://fonts.googleapis.com/css?family=Mochiy Pop P One' rel='stylesheet'>
   </head>  
@@ -14,81 +14,104 @@
     <!-- ヘッダー -->
     <div id="header"></div>
 
-      <h1 class="title">{{ユーザー名}}さんのプロフィール</h1>
+      <h1 class="title">プロフィール新規作成</h1>
 
     <!-- 中身 -->
-    <!-- 上段 -->
-    <div class="form-wrapper">
-    <form>
-       <!-- 上段右 -->
-      <div class="upper-row">
-        <div class="upper-left">
-          <h1>OSI-PROFILE</h1>
-      <input type="date" name="date" class="date">
-          <div class="form-item">
-            <label for="name">NAME</label>
-            <input type="name" name="name" id="name" class="name" style="width:200px; height: 25px;"></input>
-            <p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </p>
-          </div>
+    <div class="all">
 
-          <div class="form-item">
-            <label for="tag">関連タグ</label>
-            <input type="tag" name="tag" style="width:200px; height: 25px;"></input>
-            <p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </p>
-          </div>
-
-          <div class="form-item">
-            <label for="password">BIRTHDAY</label>
-            <input type="text" name="date" style="width:50px; height: 25px;">月</input>
-            <input type="text" name="date" style="width:50px; height: 25px;">日</input>
-            <p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </p>
-          </div>
-        </div>
-
-      <!-- 上段左 -->
-        <div class="upper-right">
-          <div class="picture">
-            <label for="picture"><input type="file" id="picture">写真選択</label>
-          </div>
-        </div>
+      <div class="loose-leaf">
+        <img src="images/loose-leaf.png" class="loose">
       </div>
 
-      <!-- 中段 -->
-      <div class="question">
-        <div class="ranking">
-          <p>推しの魅力BEST3!!</p>
-          <label for="1st">1.<input type="text" name="1st" style="width:190px; height: 35px;"></label>
-          <label for="2st">2.<input type="text" name="2st" style="width:190px; height: 35px;"></label>
-          <label for="3st">3.<input type="text" name="3st" style="width:190px; height: 35px;"></label>
-        </div>
+      <div class="form-wrapper">
+        <form>
+          
+          <!-- 上段 -->
+          <div class="upper-row">
 
-        <div class="memory">
-          <p>~推しとの思い出~</p>
-            <div class="text">
-              <label for="">推し始めたのは<input type="text" style="width:250px; height: 15px;">で、</label>
-              <label for="">推しとの出会いは<input type="text" style="width:330px; height: 15px;">だよ！</label>
-              <label for="">第一印象は<input type="text" style="width:270px; height: 15px;">で、</label>
-              <label for="">今は<input type="text" style="width:350px; height: 15px;">だと思ってるよ！</label>
+            <!-- 上段左 -->
+            <div class="upper-left">
+
+              <h1>OSHI-PROFILE</h1>
+              <input type="date" name="date" class="date" readonly>
+
+              <div class="form-item">
+                <label for="name">NAME</label>
+                <input type="name" name="name" id="name" class="name" style="width:200px; height: 25px;" readonly>
+                <p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </p>
+              </div>
+
+              <div class="form-item">
+                <label for="tag">関連タグ</label>
+                <input type="tag" name="tag" style="width:200px; height: 25px;" readonly>
+                <p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </p>
+              </div>
+
+              <div class="form-item">
+                <label for="password">BIRTHDAY</label>
+                <input type="text" name="date" style="width:50px; height: 25px;" readonly>月</input>
+                <input type="text" name="date" style="width:50px; height: 25px;" readonly>日</input>
+                <p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </p>
+              </div>
+
             </div>
-        </div>
+
+            <!-- 上段右 -->
+            <div class="upper-right">
+
+              <div class="picture">
+                <label for="picture"><input type="file" id="picture" disabled><img src="images/demo-oshi-icon.png" class="demo-oshi"></label>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- 中段 -->
+          <div class="question">
+
+            <div class="ranking">
+
+              <p>推しの魅力BEST3!!</p>
+              <label for="1st">1.<input type="text" name="1st" style="width:190px; height: 35px;" readonly></label>
+              <label for="2st">2.<input type="text" name="2st" style="width:190px; height: 35px;" readonly></label>
+              <label for="3st">3.<input type="text" name="3st" style="width:190px; height: 35px;"readonly></label>
+            
+            </div>
+
+            <div class="memory">
+              
+              <p>~推しとの思い出~</p>
+              <div class="text">
+                <label for="">推し始めたのは<input type="text" style="width:250px; height: 15px;" readonly>で、</label>
+                <label for="">推しとの出会いは<input type="text" style="width:330px; height: 15px;" readonly>だよ！</label>
+                <label for="">第一印象は<input type="text" style="width:270px; height: 15px;" readonly>で、</label>
+                <label for="">今は<input type="text" style="width:350px; height: 15px;" readonly>だと思ってるよ！</label>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- 下段 -->
+          <div class="free">
+            <p>- - - - - - - - - - - - - - - - - FREE SPACE - - - - - - - - - - - - - - - - -</p>
+            <textarea type="text" name="word" rows="5" cols="33" readonly></textarea>
+          </div>
+
+          <div class="care">
+            <p>気になったら・・・</p>
+            <textarea type="text" name="word" rows="5" cols="33" readonly></textarea>
+          </div>
+
+        </form>
+
       </div>
 
-      <!-- 下段 -->
-      <div class="free">
-        <p>- - - - - - - - - - - - - - - - - FREE SPACE - - - - - - - - - - - - - - - - -</p>
-        <textarea type="text" name="word" rows="5" cols="33"></textarea>
-      </div>
-
-      <div class="care">
-        <p>気になったら・・・</p>
-        <textarea type="text" name="word" rows="5" cols="33"></textarea>
-      </div>
-    </form>
-
-    <div class="button-panel1">
-      <input type="submit" class="button opacity-btn" title="編集完了" value="編集完了" id="btn"></input>
     </div>
 
+    <div class="button-panel1">
+      <input type="submit" class="button opacity-btn" title="プロフィールを作成" value="プロフィールを作成" id="btn"></input>
     </div>
 
     <div id="footer"></div>
@@ -98,4 +121,3 @@
     <script src="./js/header.js"></script>
   </body>
 </html>
-
