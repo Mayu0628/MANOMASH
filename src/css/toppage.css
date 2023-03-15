@@ -1,11 +1,70 @@
 .top-wrapper {
-    padding: 180px 0 100px 0;
-    height: 420px;
+    /* padding: 180px 0 100px 0; */
+    height: 670px;
     background-image: url(../images/top-img.png);
     background-size: cover;
     text-align: center;
 }
 
-.container {
+.top-text {
+    font-size: 21px;
+    color: #323233;
+
     text-align: left;
+    padding: 435px 0 0 120px;
+}
+
+.title {
+    color: #323233;
+    margin: 80px 0 60px;
+}
+
+.main-wrapper {
+    text-align: center;
+    padding: 150px 0 200px;
+    background-color: #F8D5CE;
+}
+
+.title-oshi {
+    padding-top: 10px;
+}
+
+.main-content {
+    display: inline-block;
+    text-align: center;
+
+    height: 160px;
+    width: 600px;
+
+    padding: 30px 150px;
+    margin: 40px;
+    background-color: white;
+
+    border-radius: 60px;
+}
+
+.main-content h1 {
+    color: #323233;
+    margin: 5px 0 10px;
+}
+
+.about-profile {
+    color: #323233;
+}
+
+.main-content p {
+    color: #323233;
+    font-size: 22px;
+}
+
+.right {
+    margin-right: -200px;
+}
+
+.left {
+    margin-left: -200px;
+}
+
+#footer {
+    margin-top: -150px;
 }
