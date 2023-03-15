@@ -11,9 +11,24 @@ INSERT INTO users (
 );
 
 INSERT INTO oshis (
-  oshi_name, birthday, oshi_meet, oshi_like1, oshi_like2, oshi_like3 ,free_space, interest, reaction_num, created_at, updated_at
+  user_id,oshi_id, oshi_name, birthday, oshi_meet, oshi_like1, oshi_like2, oshi_like3 ,free_space, interest, reaction_num, created_at, updated_at
 ) VALUES (
-  '中村ゆきの', '20190907', 'もし会えたら一緒にサッカーをしたいです！！', 'A', 'B', 'C',  '自由に記入しちゃうよ！', '推しについて気になったらここをみてね！！', 5, now(), now()
+  1,1,'中村ゆきの', '20190907', 'もし会えたら一緒にサッカーをしたいです！！', 'A', 'B', 'C',  '自由に記入しちゃうよ！', '推しについて気になったらここをみてね！！', 5, now(), now()
+);
+INSERT INTO oshis (
+  user_id,oshi_id, oshi_name, birthday, oshi_meet, oshi_like1, oshi_like2, oshi_like3 ,free_space, interest, reaction_num, created_at, updated_at
+) VALUES (
+  1,2,'中村ゆきの2', '20190907', 'もし会えたら一緒にサッカーをしたいです！！', 'A', 'B', 'C',  '自由に記入しちゃうよ！', '推しについて気になったらここをみてね！！', 5, now(), now()
+);
+INSERT INTO oshis (
+  user_id,oshi_id, oshi_name, birthday, oshi_meet, oshi_like1, oshi_like2, oshi_like3 ,free_space, interest, reaction_num, created_at, updated_at
+) VALUES (
+  2,3,'中村ゆきの3', '20190907', 'もし会えたら一緒にサッカーをしたいです！！', 'A', 'B', 'C',  '自由に記入しちゃうよ！', '推しについて気になったらここをみてね！！', 5, now(), now()
+);
+INSERT INTO oshis (
+  user_id,oshi_id, oshi_name, birthday, oshi_meet, oshi_like1, oshi_like2, oshi_like3 ,free_space, interest, reaction_num, created_at, updated_at
+) VALUES (
+  2,4,'中村ゆきの4', '20190907', 'もし会えたら一緒にサッカーをしたいです！！', 'A', 'B', 'C',  '自由に記入しちゃうよ！', '推しについて気になったらここをみてね！！', 5, now(), now()
 );
 
 INSERT INTO comments (
