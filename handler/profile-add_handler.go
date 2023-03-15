@@ -45,7 +45,7 @@ func ProfileAddHandler(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	ResData := ResFlgCreate(1, "既にその推しのプロフィールを作成済みです。", uint(SendID.OshiID))
+	ResData := ResFlgCreate(0, "既にその推しのプロフィールを作成済みです。", uint(SendID.OshiID))
 	if err := json.NewEncoder(w).Encode(ResData); err != nil {
 		fmt.Println(err)
 		ResData := ResFlgCreate(0, "結果をエンコードできませんでした。", 0)

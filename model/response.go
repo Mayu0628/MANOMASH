@@ -9,7 +9,7 @@ type ResFlg struct {
 type ResOshiData struct {
 	Status     int
 	Result     string
-	Id         int
+	OshiId     int
 	OshiName   string
 	Birthday   string
 	OshiMeet   string

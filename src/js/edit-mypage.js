@@ -59,6 +59,7 @@ const updateUserInfo = async () => {
     console.log(response)
     const userInfo = await response.json();
     console.log(userInfo);
+    window.location.href = '../src/mypage.html';
 };
 
 onload.window = getUserInfo()
