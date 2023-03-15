@@ -20,12 +20,12 @@
             <!-- ユーザーの画像いれる -->
             <img src="./images/demo-user-icon.png"><br>
             <label for="">画像を変更 : </label><input type="file" name="" id="" value=""><br>
-            <input type="text" class="edit-username" value="ユーザーの名前"><br>
-            <textarea class="edit-usercomment" name="" id="" cols="30" rows="0">ユーザーのコメント</textarea>
+            <textarea id="edit-user-name" type="text" class="edit-username"></textarea><br>
+            <textarea  class="edit-usercomment" name="" id="edit-user-intro" cols="30" rows="0">ユーザーのコメント</textarea>
         </div>
 
         <div>
-            <input class="edit-done-btn opacity-btn" type="submit" value="編集完了">
+            <input class="edit-done-btn opacity-btn" type="button" value="編集完了" onclick="updateUserInfo()">
         </div>
     </div>
 
@@ -37,6 +37,7 @@
     <script src="./common/header.js"></script>
     <script src="./common/footer.js"></script>
     <script src="./js/header.js"></script>
+    <script src="./js/edit-mypage.js"></script>
 </body>
 </html>
 

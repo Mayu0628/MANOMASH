@@ -12,8 +12,6 @@ if (getID.length !== 0) {
     login_logout.innerHTML = `
         <a id="login_logout" class=login-link href="login.html" onclick="logOut()">ログアウト</a>
     `
-    // login_logout.innerText = 'ログアウト';
-    // login_logout.href = "index.html";
 } else {
     login_logout.innerHTML = `
         <a id="login_logout" class=login-link href="login.html">ログイン</a>
