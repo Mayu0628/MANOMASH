@@ -1,3 +1,9 @@
+const viewProfile = async (value) => {
+    document.cookie = await "oshi_id=" + value;
+    console.log(document.cookie);
+    window.location.href = '../src/profile.html';
+}
+
 const getMypageInfo = async () => {
     const key = 'id';
     const value = document.cookie.match(
@@ -18,8 +24,6 @@ const getMypageInfo = async () => {
     const mypageInfo = await response.json();
     console.log("mypageInfo",mypageInfo)
     const user_name = document.getElementById('user_name')
-    console.log(user_name)
-    // if not null
     user_name.innerHTML = mypageInfo.UserName;
 
     const user_id = document.getElementById('user_id')
@@ -29,5 +33,22 @@ const getMypageInfo = async () => {
     const user_comment = document.getElementById('user_comment')
     console.log(user_comment)
     user_comment.innerHTML = mypageInfo.Introduce;
+    console.log("OshiID.length",mypageInfo.OshiID.length)
+    for (let i = 0; i < mypageInfo.OshiID.length; i++) {
+        console.log("OshiID",mypageInfo.OshiID[i])
+        document.getElementById("oshis").insertAdjacentHTML(
+            "afterend",
+            `
+                <button type="button" class="osiprofile hover-tab" id="oshi" onclick="viewProfile(${mypageInfo.OshiID[i]})">
+                    <img src="./images/demo-oshi-icon.png"><br>
+                    <div class="osiprofile-information">
+                        <h2> ${mypageInfo.OshiName[i]} </h2>
+                    </div>
+                </button>
+            `
+        );
+        
+    } 
 }
+
 window.onload = getMypageInfo()

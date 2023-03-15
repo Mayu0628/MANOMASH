@@ -6,23 +6,18 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"strconv"
+	"time"
 )
 
 func ProfileEditHandler(w http.ResponseWriter, req *http.Request) {
-	id, err := strconv.Atoi(req.URL.Query().Get("id"))
-	if err != nil {
-		ResData := ResFlgCreate(0, "fail", 0)
-		json.NewEncoder(w).Encode(ResData)
-		return
-	}
 	var reqOshiData model.Oshi
 	if err := json.NewDecoder(req.Body).Decode(&reqOshiData); err != nil {
-		ResData := ResFlgCreate(0, "fail", 0)
+		ResData := ResFlgCreate(0, "デコードに失敗しました。", 0)
 		json.NewEncoder(w).Encode(ResData)
 		return
 	}
 	oshi := model.Oshi{
+		UserID:     reqOshiData.UserID,
 		OshiID:     reqOshiData.OshiID,
 		OshiName:   reqOshiData.OshiName,
 		Birthday:   reqOshiData.Birthday,
@@ -33,13 +28,29 @@ func ProfileEditHandler(w http.ResponseWriter, req *http.Request) {
 		Free_Space: reqOshiData.Free_Space,
 		Interest:   reqOshiData.Interest,
 	}
-	result := database.DB.Model(&reqOshiData).Where("user_id = ?", id).Where("oshi_id = ?").Updates(oshi)
+	result := database.DB.Model(oshi).Where("user_id = ?", reqOshiData.UserID).Where("oshi_id = ?", reqOshiData.OshiID).Updates(map[string]interface{}{
+		"oshi_name":  oshi.OshiName,
+		"birthday":   oshi.Birthday,
+		"oshi_meet":  oshi.OshiMeet,
+		"oshi_like1": oshi.OshiLike1,
+		"oshi_like2": oshi.OshiLike2,
+		"oshi_like3": oshi.OshiLike3,
+		"free_space": oshi.Free_Space,
+		"interest":   oshi.Interest,
+		"updated_at": time.Now(),
+	})
+	if result.Error != nil {
+		ResData := ResFlgCreate(0, "アップデートに失敗しました", 0)
+		json.NewEncoder(w).Encode(ResData)
+		return
+	}
 	ResData := ResFlgCreate(1, "succesful", uint(oshi.OshiID))
 	if err := json.NewEncoder(w).Encode(result); err != nil {
-		ResData = ResFlgCreate(0, "fail", 0)
+		ResData = ResFlgCreate(0, "エンコードに失敗しました", 0)
 		json.NewEncoder(w).Encode(ResData)
 		fmt.Println(err)
 		return
 	}
 	json.NewEncoder(w).Encode(ResData)
+	return
 }
