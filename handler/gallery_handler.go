@@ -14,7 +14,7 @@ type ResGelData struct {
 	Result    string
 	UserID    int
 	OshiName  []string
-	//OshiID    []int
+	OshiID    []int
 }
 
 func GalleryHandler(w http.ResponseWriter, req *http.Request) {
@@ -31,7 +31,7 @@ func GalleryHandler(w http.ResponseWriter, req *http.Request) {
 		if Oshidata[i].OshiName != ""{
 			fmt.Println(Oshidata[i].OshiID)
 			Response.OshiName = append(Response.OshiName, Oshidata[i].OshiName)
-			//Response.OshiID = append(Response.OshiID, Oshidata[i].OshiID)
+			Response.OshiID = append(Response.OshiID, Oshidata[i].OshiID)
 		}
 	}
 	Response.Status, Response.Result, Response.UserID= 1, "succesful", id

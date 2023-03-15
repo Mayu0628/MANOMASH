@@ -33,5 +33,4 @@ func ProfileListHandler(w http.ResponseWriter, req *http.Request) {
 	}
 	Response.Status, Response.Result, Response.UserID = 1, "succesful", id
 	json.NewEncoder(w).Encode(Response)
-	return
 }
