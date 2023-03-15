@@ -10,7 +10,7 @@ import (
 )
 
 func ProfileHandler(w http.ResponseWriter, req *http.Request) {
-	id, err := strconv.Atoi(req.URL.Query().Get("id"))
+	id, err := strconv.Atoi(req.URL.Query().Get("user_id"))
 	if err != nil {
 		fmt.Println("id取得失敗")
 		ResData := ResFlgCreate(0, "fail", 0)
@@ -18,7 +18,7 @@ func ProfileHandler(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	var reqOshiData model.Oshi
-	result := database.DB.First(&reqOshiData, "oshi_id = ?", id)
+	result := database.DB.Find(&reqOshiData, "user_id = ?", id)
 	if result.Error != nil {
 		ResData := ResFlgCreate(0, "DBからデータが見つかりませんでした", 0)
 
@@ -29,7 +29,7 @@ func ProfileHandler(w http.ResponseWriter, req *http.Request) {
 	oshi := &model.ResOshiData{
 		Status:     1,
 		Result:     "succes",
-		Id:         reqOshiData.OshiID,
+		OshiId:     reqOshiData.OshiID,
 		OshiName:   reqOshiData.OshiName,
 		Birthday:   reqOshiData.Birthday,
 		OshiMeet:   reqOshiData.OshiMeet,
