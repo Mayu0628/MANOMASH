@@ -4,7 +4,6 @@ import (
 	"MANOMASH/database"
 	"MANOMASH/model"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"time"
 )
@@ -48,7 +47,6 @@ func ProfileEditHandler(w http.ResponseWriter, req *http.Request) {
 	if err := json.NewEncoder(w).Encode(result); err != nil {
 		ResData = ResFlgCreate(0, "エンコードに失敗しました", 0)
 		json.NewEncoder(w).Encode(ResData)
-		fmt.Println(err)
 		return
 	}
 	json.NewEncoder(w).Encode(ResData)
